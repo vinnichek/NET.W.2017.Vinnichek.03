@@ -1,0 +1,6 @@
+C:\Users\Ira Vinnichek\source\repos\Task3\DoubleToBin\bin\Debug\DoubleToBin.dll
+C:\Users\Ira Vinnichek\source\repos\Task3\DoubleToBin\bin\Debug\DoubleToBin.pdb
+C:\Users\Ira Vinnichek\source\repos\Task3\DoubleToBin\obj\Debug\DoubleToBin.csprojResolveAssemblyReference.cache
+C:\Users\Ira Vinnichek\source\repos\Task3\DoubleToBin\obj\Debug\DoubleToBin.csproj.CoreCompileInputs.cache
+C:\Users\Ira Vinnichek\source\repos\Task3\DoubleToBin\obj\Debug\DoubleToBin.dll
+C:\Users\Ira Vinnichek\source\repos\Task3\DoubleToBin\obj\Debug\DoubleToBin.pdb

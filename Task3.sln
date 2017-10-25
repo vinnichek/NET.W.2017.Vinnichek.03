@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GreatestCommonDivisor.Logic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GreatestCommonDivisor.Tests", "GreatestCommonDivisor.Tests\GreatestCommonDivisor.Tests.csproj", "{13409C00-068B-4739-8A35-8B24F1F1606E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoubleToBin.Logic", "DoubleToBin\DoubleToBin.Logic.csproj", "{E0B1DEB2-317E-4656-B56E-5201629E2F86}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoubleToBin.Tests", "DoubleToBin.Tests\DoubleToBin.Tests.csproj", "{B36FC759-A9F0-4873-AB68-401F43092B55}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{13409C00-068B-4739-8A35-8B24F1F1606E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13409C00-068B-4739-8A35-8B24F1F1606E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13409C00-068B-4739-8A35-8B24F1F1606E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0B1DEB2-317E-4656-B56E-5201629E2F86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0B1DEB2-317E-4656-B56E-5201629E2F86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0B1DEB2-317E-4656-B56E-5201629E2F86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0B1DEB2-317E-4656-B56E-5201629E2F86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B36FC759-A9F0-4873-AB68-401F43092B55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B36FC759-A9F0-4873-AB68-401F43092B55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B36FC759-A9F0-4873-AB68-401F43092B55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B36FC759-A9F0-4873-AB68-401F43092B55}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
