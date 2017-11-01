@@ -20,8 +20,24 @@ namespace GreatestCommonDivisor.Logic
         /// <returns>GCD for two numbers. </returns>
         public static int EuclidMethod(int firstNumber, int secondNumber)
         {
-            int gcd = HelperForEuclidMethod(firstNumber, secondNumber);
-            return gcd;
+            firstNumber = Math.Abs(firstNumber);
+            secondNumber = Math.Abs(secondNumber);
+
+            if (firstNumber == 0) return firstNumber;
+            if (secondNumber == 0) return secondNumber;
+
+            while (firstNumber != secondNumber)
+            {
+                if (firstNumber > secondNumber)
+                {
+                    firstNumber = firstNumber - secondNumber;
+                }
+                else
+                {
+                    secondNumber = secondNumber - firstNumber;
+                }
+            }
+            return firstNumber;
         }
 
         /// <summary>
@@ -33,8 +49,8 @@ namespace GreatestCommonDivisor.Logic
         /// <returns>GCD for three numbers. </returns>
         public static int EuclidMethod(int firstNumber, int secondNumber, int thirdNumber)
         {
-            int gcd = HelperForEuclidMethod(firstNumber, secondNumber);
-            return HelperForEuclidMethod(gcd, thirdNumber);
+            int gcd = EuclidMethod(firstNumber, secondNumber);
+            return EuclidMethod(gcd, thirdNumber);
         }
 
         /// <summary>
@@ -47,9 +63,9 @@ namespace GreatestCommonDivisor.Logic
         /// <returns>GCD for four numbers. </returns>
         public static int EuclidMethod(int firstNumber, int secondNumber, int thirdNumber, int foursNumber)
         {
-            int gcd = HelperForEuclidMethod(firstNumber, secondNumber);
-            gcd = HelperForEuclidMethod(gcd, thirdNumber);
-            return HelperForEuclidMethod(gcd, foursNumber);
+            int gcd = EuclidMethod(firstNumber, secondNumber);
+            gcd = EuclidMethod(gcd, thirdNumber);
+            return EuclidMethod(gcd, foursNumber);
         }
 
         /// <summary>
@@ -60,7 +76,7 @@ namespace GreatestCommonDivisor.Logic
         public static int EuclidMethod(params int[] array)
         {
             ArrayChecker(array);
-            int gcd = HelperForEuclidMethod(array[0], array[1]);
+            int gcd = EuclidMethod(array[0], array[1]);
             for (int i = 2; i < array.Length; i++)
             {
                 gcd = EuclidMethod(gcd, array[i]);
@@ -111,7 +127,29 @@ namespace GreatestCommonDivisor.Logic
         /// <returns>GCD for two numbers. </returns>
         public static int SteinMethod(int firstNumber, int secondNumber)
         {
-            int gcd = HelperForEuclidMethod(firstNumber, secondNumber);
+            firstNumber = Math.Abs(firstNumber);
+            secondNumber = Math.Abs(secondNumber);
+
+            if (firstNumber == secondNumber) return firstNumber;
+            if (firstNumber == 0) return firstNumber;
+            if (secondNumber == 0) return secondNumber;
+
+            if ((~firstNumber & 1) != 0)
+            {
+                if ((secondNumber & 1) != 0)
+                    return SteinMethod(firstNumber >> 1, secondNumber);
+                else
+                    return SteinMethod(firstNumber >> 1, secondNumber >> 1) << 1;
+            }
+
+            if ((~secondNumber & 1) != 0)
+                return SteinMethod(firstNumber, secondNumber >> 1);
+
+            if (firstNumber > secondNumber)
+                return SteinMethod((firstNumber - secondNumber) >> 1, secondNumber);
+
+            int gcd = SteinMethod((secondNumber - firstNumber) >> 1, firstNumber);
+
             return gcd;
         }
 
@@ -124,8 +162,8 @@ namespace GreatestCommonDivisor.Logic
         /// <returns>GCD for two numbers. </returns>
         public static int SteinMethod(int firstNumber, int secondNumber, int thirdNumber)
         {
-            int gcd = HelperForEuclidMethod(firstNumber, secondNumber);
-            return HelperForEuclidMethod(gcd, thirdNumber);
+            int gcd = SteinMethod(firstNumber, secondNumber);
+            return SteinMethod(gcd, thirdNumber);
         }
 
         /// <summary>
@@ -138,9 +176,9 @@ namespace GreatestCommonDivisor.Logic
         /// <returns>GCD for two numbers. </returns>
         public static int SteinMethod(int firstNumber, int secondNumber, int thirdNumber, int fourthNumber)
         {
-            int gcd = HelperForEuclidMethod(firstNumber, secondNumber);
-            gcd = HelperForEuclidMethod(gcd, thirdNumber);
-            return HelperForEuclidMethod(gcd, fourthNumber);
+            int gcd = SteinMethod(firstNumber, secondNumber);
+            gcd = SteinMethod(gcd, thirdNumber);
+            return SteinMethod(gcd, fourthNumber);
         }
 
         /// <summary>
@@ -151,7 +189,7 @@ namespace GreatestCommonDivisor.Logic
         public static int SteinMethod(params int[] array)
         {
             ArrayChecker(array);
-            int gcd = HelperForSteinMethod(array[0], array[1]);
+            int gcd = SteinMethod(array[0], array[1]);
             for (int i = 2; i < array.Length; i++)
             {
                 gcd = SteinMethod(gcd, array[i]);
@@ -182,7 +220,7 @@ namespace GreatestCommonDivisor.Logic
         /// <param name="time">Method for time. </param>
         /// <param name="array">Array of int numbers. </param>
         /// <returns>GCD for array of int numbers. </returns>
-        private static int HelperForSteinMethod(out long time, params int[] array)
+        private static int SteinMethod(out long time, params int[] array)
         {
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
@@ -196,56 +234,6 @@ namespace GreatestCommonDivisor.Logic
         #endregion
 
         #region Private Methods
-        private static int HelperForEuclidMethod(int firstNumber, int secondNumber)
-        {
-            firstNumber = Math.Abs(firstNumber);
-            secondNumber = Math.Abs(secondNumber);
-
-            if (firstNumber == 0) return firstNumber;
-            if (secondNumber == 0) return secondNumber;
-
-            while (firstNumber != secondNumber)
-            {
-                if (firstNumber > secondNumber)
-                {
-                    firstNumber = firstNumber - secondNumber;
-                }
-                else
-                {
-                    secondNumber = secondNumber - firstNumber;
-                }
-            }
-            return firstNumber;
-        }
-
-        private static int HelperForSteinMethod(int firstNumber, int secondNumber)
-        {
-            firstNumber = Math.Abs(firstNumber);
-            secondNumber = Math.Abs(secondNumber);
-
-            if (firstNumber == secondNumber) return firstNumber;
-            if (firstNumber == 0) return firstNumber;
-            if (secondNumber == 0) return secondNumber;
-
-            if ((~firstNumber & 1) != 0)
-            {
-                if ((secondNumber & 1) != 0)
-                    return HelperForSteinMethod(firstNumber >> 1, secondNumber);
-                else
-                    return HelperForSteinMethod(firstNumber >> 1, secondNumber >> 1) << 1;
-            }
-
-            if ((~secondNumber & 1) != 0)
-                return HelperForSteinMethod(firstNumber, secondNumber >> 1);
-
-            if (firstNumber > secondNumber)
-                return HelperForSteinMethod((firstNumber - secondNumber) >> 1, secondNumber);
-
-            int gcd = HelperForSteinMethod((secondNumber - firstNumber) >> 1, firstNumber);
-
-            return gcd;
-        }
-
         private static void ArrayChecker(int[] array)
         {
             if (array == null)
