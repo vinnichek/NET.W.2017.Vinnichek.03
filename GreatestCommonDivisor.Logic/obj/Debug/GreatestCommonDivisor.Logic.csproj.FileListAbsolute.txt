@@ -1,6 +1,5 @@
-C:\Users\Ira Vinnichek\source\repos\Task3\GreatestCommonDivisor.Logic\bin\Debug\GreatestCommonDivisor.Logic.dll
-C:\Users\Ira Vinnichek\source\repos\Task3\GreatestCommonDivisor.Logic\bin\Debug\GreatestCommonDivisor.Logic.pdb
-C:\Users\Ira Vinnichek\source\repos\Task3\GreatestCommonDivisor.Logic\obj\Debug\GreatestCommonDivisor.Logic.csprojResolveAssemblyReference.cache
-C:\Users\Ira Vinnichek\source\repos\Task3\GreatestCommonDivisor.Logic\obj\Debug\GreatestCommonDivisor.Logic.csproj.CoreCompileInputs.cache
-C:\Users\Ira Vinnichek\source\repos\Task3\GreatestCommonDivisor.Logic\obj\Debug\GreatestCommonDivisor.Logic.dll
-C:\Users\Ira Vinnichek\source\repos\Task3\GreatestCommonDivisor.Logic\obj\Debug\GreatestCommonDivisor.Logic.pdb
+/Users/vinnichek/Projects/Task10/GreatestCommonDivisor.Logic/obj/Debug/GreatestCommonDivisor.Logic.csproj.CoreCompileInputs.cache
+/Users/vinnichek/Projects/Task10/GreatestCommonDivisor.Logic/bin/Debug/GreatestCommonDivisor.Logic.dll
+/Users/vinnichek/Projects/Task10/GreatestCommonDivisor.Logic/bin/Debug/GreatestCommonDivisor.Logic.pdb
+/Users/vinnichek/Projects/Task10/GreatestCommonDivisor.Logic/obj/Debug/GreatestCommonDivisor.Logic.dll
+/Users/vinnichek/Projects/Task10/GreatestCommonDivisor.Logic/obj/Debug/GreatestCommonDivisor.Logic.pdb

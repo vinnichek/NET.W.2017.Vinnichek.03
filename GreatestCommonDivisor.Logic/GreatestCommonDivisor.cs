@@ -91,15 +91,7 @@ namespace GreatestCommonDivisor.Logic
         /// <param name="firstNumber">First int number. </param>
         /// <param name="secondNumber">Second int number. </param>
         /// <returns>GCD for two numbers. </returns>
-        public static int EuclidMethod(out long time, int firstNumber, int secondNumber)
-        {
-            Stopwatch stopwatch = new Stopwatch();
-            stopwatch.Start();
-            int gcd = EuclidMethod(firstNumber, secondNumber);
-            stopwatch.Stop();
-            time = stopwatch.ElapsedMilliseconds;
-            return gcd;
-        }
+        public static int EuclidMethod(out TimeSpan time, int firstNumber, int secondNumber) => Calculate(() => EuclidMethod(firstNumber, secondNumber), out time);
 
         /// <summary>
         /// Finds GCD using Euclid Method for two numbers.
@@ -107,15 +99,8 @@ namespace GreatestCommonDivisor.Logic
         /// <param name="time">Method for time. </param>
         /// <param name="array">Array of int numbers. </param>
         /// <returns>GCD for two numbers. </returns>
-        public static int EuclidMethod(out long time, params int[] array)
-        {
-            Stopwatch stopwatch = new Stopwatch();
-            stopwatch.Start();
-            int gcd = EuclidMethod(array);
-            stopwatch.Stop();
-            time = stopwatch.ElapsedMilliseconds;
-            return gcd;
-        }
+        public static int EuclidMethod(out TimeSpan time, params int[] array) => Calculate(() => EuclidMethod(array), out time);
+
         #endregion
 
         #region Public Stein Methods
@@ -204,15 +189,7 @@ namespace GreatestCommonDivisor.Logic
         /// <param name="firstNumber">First int number. </param>
         /// <param name="secondNumber">Second int number. </param>
         /// <returns>GCD for two numbers. </returns>
-        private static int SteinMethod(out long time, int firstNumber, int secondNumber)
-        {
-            Stopwatch stopwatch = new Stopwatch();
-            stopwatch.Start();
-            int gcd = SteinMethod(firstNumber, secondNumber);
-            stopwatch.Stop();
-            time = stopwatch.ElapsedMilliseconds;
-            return gcd;
-        }
+        public static int SteinMethod(out TimeSpan time, int firstNumber, int secondNumber) => Calculate(() => SteinMethod(firstNumber, secondNumber), out time);
 
         /// <summary>
         /// Finds GCD using Stein Method for two numbers.
@@ -220,15 +197,8 @@ namespace GreatestCommonDivisor.Logic
         /// <param name="time">Method for time. </param>
         /// <param name="array">Array of int numbers. </param>
         /// <returns>GCD for array of int numbers. </returns>
-        private static int SteinMethod(out long time, params int[] array)
-        {
-            Stopwatch stopwatch = new Stopwatch();
-            stopwatch.Start();
-            int gcd = SteinMethod(array);
-            stopwatch.Stop();
-            time = stopwatch.ElapsedMilliseconds;
-            return gcd;
-        }
+        public static int SteinMethod(out TimeSpan time, params int[] array) => Calculate(() => SteinMethod(array), out time);
+
         #endregion
 
         #endregion
@@ -246,10 +216,23 @@ namespace GreatestCommonDivisor.Logic
                 throw new ArgumentException("Array is empty.");
             }
 
-            if (array.Length == 1) 
+            if (array.Length == 1)
             {
                 throw new ArgumentException("Need at least two elements.");
             }
+        }
+
+        private static int Calculate(Func<int> operation, out TimeSpan time)
+        {
+            Stopwatch stopwatch = new Stopwatch();            
+            stopwatch.Start();
+
+            int gcd = operation();
+
+            stopwatch.Stop();
+            time = stopwatch.Elapsed;
+
+            return gcd;
         }
         #endregion
     }
